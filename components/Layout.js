@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import Footer from './Footer'
 
-const Layout = ({title,desc,children}) => {
+const Layout = ({title,desc,children, foottitle, lead, second,factory,office,sales,img,fb,insta,twit,lin}) => {
     return (
         <div className='bg-gray-100'>
         <Head>
@@ -8,15 +9,10 @@ const Layout = ({title,desc,children}) => {
             <meta name="description" content={desc} />
         </Head>
         <main>
-            <div className='container mx-auto px-6 py-3'>
             {children}
-            </div>
         </main>
-        <footer>
-        <div className='container mx-auto px-6 py-3'>
-            Footer
-        </div>
-        </footer>
+        <Footer foottitle={foottitle} lead={lead} second={second} factory={factory} office={office} sales={sales} img={img} fb={fb} twit={twit}
+            insta={insta} lin={lin} />
         </div>
     )
 }
