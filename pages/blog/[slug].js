@@ -35,7 +35,7 @@ export default function Posts({post}) {
 
     return(
         <div>
-            Slug
+            <Post post={post} />
         </div>
     )
 }
