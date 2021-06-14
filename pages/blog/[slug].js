@@ -10,7 +10,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({content_type:'blogPost'})
-    const paths = res.items.map(item => {
+    const paths = await res.items.map(item => {
         return {
             params:{slug: item.fields.slug}
         }
@@ -45,6 +45,7 @@ export default function Posts({homePage,salesman,post}) {
         img={heroImage.fields.file.url} fb={facebook} twit={twitter}insta={instagram} lin={linkedIn} 
         sales={salesman} >
         <Header link={['profile','aplikasi','contact']} titleLink={'/blog'} img={heroImage.fields.file.url} />
+        <Post post={post} motto={motto}/>
         </Layout>
     )
 }
