@@ -34,6 +34,8 @@ export const getStaticProps = async ({params}) => {
 export default function Posts({post}) {
 
     return(
-        <Post post={post}/>
+        <div>
+            Slug
+        </div>
     )
 }
