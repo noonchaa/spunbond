@@ -35,7 +35,7 @@ export default function Posts({post}) {
 
     return(
         <div>
-            <Post post={post} />
+            <Post blogPost={post} />
         </div>
     )
 }
