@@ -12,7 +12,7 @@ const Header = ({link, titleLink,img}) => {
         <div className="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
                 <div>
-                    <Image src={`https://${img}`} className="w-10 h-10 p-2 rounded-full" alt='logo' width={24} height={24} />
+                    <Image src={`https:${img}`} className="w-10 h-10 p-2 rounded-full" alt='logo' width={24} height={24} />
                     <Link href={titleLink}>
                     <a className='text-xl font-bold text-red-600 md:text-2xl ml-2' >
                         Care Spunbond

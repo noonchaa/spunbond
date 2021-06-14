@@ -7,7 +7,7 @@ export default function Post({post,motto}) {
 
     const CustomRender = ({url}) => (
         <div>
-            <img src={`https://${url}`} alt='post' width='auto' height='auto' className='mx-auto'/>
+            <img src={`https:${url}`} alt='post' width='auto' height='auto' className='mx-auto'/>
         </div>
     )
     const optionsRender = {

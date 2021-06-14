@@ -10,7 +10,7 @@ const Footer = ({foottitle,lead,second,fb,twit,insta,lin,factory,office,sales,im
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <Link href='/'>
       <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          <Image src={`https://${img}`} className="w-10 h-10 p-2 rounded-full" alt='logo' width={40} height={40} />
+          <Image src={`https:${img}`} className="w-10 h-10 p-2 rounded-full" alt='logo' width={40} height={40} />
         <span className="ml-3 text-xl capitalize">{foottitle}</span>
       </a>
       </Link>
