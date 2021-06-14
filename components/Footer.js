@@ -1,16 +1,19 @@
 import Image from 'next/image'
 import {FaFacebookF, FaTwitter,FaInstagram, FaLinkedin} from 'react-icons/fa'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Link from 'next/link'
 
 const Footer = ({foottitle,lead,second,fb,twit,insta,lin,factory,office,sales,img}) => {
     return (
-        <footer className="text-gray-600 body-font">
+        <footer className="text-gray-600 body-font" id='contact'>
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <Link href='/'>
       <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <Image src={`https://${img}`} className="w-10 h-10 p-2 rounded-full" alt='logo' width={40} height={40} />
         <span className="ml-3 text-xl capitalize">{foottitle}</span>
       </a>
+      </Link>
       <p className="mt-2 text-sm text-gray-500 capitalize">{lead}<br/>{second}</p>
     </div>
     <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -30,7 +33,7 @@ const Footer = ({foottitle,lead,second,fb,twit,insta,lin,factory,office,sales,im
         <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Sales</h2>
         {sales.map((item,index)=>(
         <p className="text-gray-600 hover:text-gray-800" key={index} >
-            {item.fields.name} <br/> 0{item.fields.nomorTelpon}
+            {item.name} <br/> 0{item.nomorTelpon}
         </p>
         ))}
       </div>

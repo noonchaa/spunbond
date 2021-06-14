@@ -3,7 +3,7 @@ import Footer from './Footer'
 
 const Layout = ({title,desc,children, foottitle, lead, second,factory,office,sales,img,fb,insta,twit,lin}) => {
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-gray-50'>
         <Head>
             <title>{title}</title>
             <meta name="description" content={desc} />
