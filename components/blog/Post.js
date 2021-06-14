@@ -13,7 +13,7 @@ export default function Post({post}) {
                     tanggal
                     </p>
                     <div className='prose max-w-none lg:prose-lg xl:prose-xl'>
-                        {documentToReactComponents(post.fields.post)}
+                        contentful rich text
                     </div>
                 </div>
             </div>
