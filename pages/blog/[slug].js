@@ -36,13 +36,15 @@ export const getStaticProps = async ({params}) => {
 }
 
 export default function Posts({homePage,salesman,post}) {
-    const {siteTitle,description,title,text1,text2,headOffice,factory,heroImage,facebook,instagram,twitter,linkedIn,motto} = homePage.fields
+    const {siteTitle,description,title,text1,text2,headOffice,factory,heroImage,facebook,instagram,twitter,linkedIn,
+        motto} = homePage.fields
 
     return(
-        <Layout title={siteTitle} desc={description} foottitle={title} lead={text1} second={text2} factory={factory} office={headOffice}
-        img={heroImage.fields.file.url} fb={facebook} twit={twitter}insta={instagram} lin={linkedIn} sales={salesman} >
+        <Layout title={siteTitle} desc={description} foottitle={title} lead={text1} second={text2} factory={factory} 
+        office={headOffice}
+        img={heroImage.fields.file.url} fb={facebook} twit={twitter}insta={instagram} lin={linkedIn} 
+        sales={salesman} >
         <Header link={['profile','aplikasi','contact']} titleLink={'/blog'} img={heroImage.fields.file.url} />
-        <Post post={post} motto={motto}/>
         </Layout>
     )
 }
