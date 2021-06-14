@@ -10,7 +10,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({content_type:'blogPost'})
-    const paths = await res.items.map(item => {
+    const paths = res.items.map(item => {
         return {
             params:{slug: item.fields.slug}
         }
@@ -24,12 +24,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({params}) => {
   const homepage = await client.getEntries({content_type:'homePage', 'fields.siteTitle': 'Care Spunbond'})
   const salesman = await client.getEntries({content_type: 'salesman'})
-  const post = await client.getEntries({content_type:'blogPost','fields.slug':params.slug})
+  const {items} = await client.getEntries({content_type:'blogPost','fields.slug':params.slug})
   return {
     props: {
       homePage: homepage.items[0],
       salesman: salesman.items.map(item=>({...item.fields})),
-      post: post.items[0]
+      post: items[0]
     },
     revalidate: 60
   }
