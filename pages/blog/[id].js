@@ -20,15 +20,19 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({params}) => {
     const {items} = await client.getEntries({content_type:'blogPost','fields.slug':params.id})
+    const homepage = await client.getEntries({content_type:'homePage', 'fields.siteTitle': 'Care Spunbond'})
+    const salesman = await client.getEntries({content_type: 'salesman'})
     return {
         props : {
-            postDetail : items[0]
+            postDetail : items[0],
+            home : homepage[0],
+            sales: salesman.items.map(item => ({...item.fields}))
         },
         revalidate: 10
     }
 }
 
-const PostDetail = ({postDetail}) => {
+const PostDetail = ({postDetail,home, sales}) => {
     if (!postDetail) return <h1>...loading...</h1>
     const {judul} = postDetail.fields
     return (
