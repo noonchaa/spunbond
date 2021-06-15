@@ -14,7 +14,7 @@ export const getStaticPaths = async () => {
     })
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -29,6 +29,7 @@ export const getStaticProps = async ({params}) => {
 }
 
 const PostDetail = ({postDetail}) => {
+    if (!postDetail) return <h1>...loading...</h1>
     const {judul} = postDetail.fields
     return (
         <div>
