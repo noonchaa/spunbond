@@ -23,19 +23,28 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({params}) => {
   const {items} = await client.getEntries({content_type:'blogPost','fields.slug':params.slug})
+  const homepage = await client.getEntries({content_type:'homePage', 'fields.siteTitle': 'Care Spunbond'})
+  const salesman = await client.getEntries({content_type: 'salesman'})
   return {
     props: {
-      post: items[0]
+      isipost: items[0],
+      homePage: homepage.items[0],
+      salesman: salesman.items.map(item=>({...item.fields})),
     },
     revalidate: 60
   }
 }
 
-export default function Posts({post}) {
+export default function Posts({isipost,homePage,salesman}) {
+    const {siteTitle,description,title,text1,text2,headOffice,factory,heroImage,facebook,instagram,
+            twitter,linkedIn} = homePage.fields
 
     return(
-        <div>
-            <Post blogPost={post} />
-        </div>
+        <Layout title={siteTitle} desc={description} foottitle={title} lead={text1} second={text2} factory={factory} 
+        office={headOffice} img={heroImage.fields.file.url} fb={facebook} twit={twitter}insta={instagram} 
+        lin={linkedIn} sales={salesman} >
+            <Header link={['profile','aplikasi','contact']} titleLink={'/'} img={heroImage.fields.file.url} />
+            <Post blogPost={isipost} />
+        </Layout>
     )
 }
