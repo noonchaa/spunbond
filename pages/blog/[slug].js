@@ -19,6 +19,8 @@ export const getStaticPaths = async () => {
 }
 export const getStaticProps = async ({params}) => {
     const {items} = await client.getEntries({content_type:'blogPost','fields.slug':params.slug})
+    const homepage = await client.getEntries({content_type:'homePage', 'fields.siteTitle': 'Care Spunbond'})
+    const salesman = await client.getEntries({content_type: 'salesman'})
     if (!items.length){
         return {
             redirect:{
@@ -29,13 +31,15 @@ export const getStaticProps = async ({params}) => {
     }
     return {
         props:{
-            isiPost:items[0]
+            isiPost:items[0],
+            homepage: homepage[0],
+            salesman: salesman.items.map(item=>({...item.fields}))
         },
         revalidate:10
     }
 }
 
-const Posts = ({isiPost}) => {
+const Posts = ({isiPost,homepage,salesman}) => {
 
     return(
         <div>
