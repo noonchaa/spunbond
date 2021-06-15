@@ -29,19 +29,18 @@ export const getStaticProps = async ({params}) => {
     }
     return {
         props:{
-            isiPost:items[0].fields
+            isiPost:items[0]
         },
         revalidate:10
     }
 }
 
 const Posts = ({isiPost}) => {
-    const {judul, keyword,post} = isiPost
 
     return(
         <div>
-        <h1>{judul}</h1>
-        <h1>{keyword}</h1>
+        <h1>judul</h1>
+        <h1>key</h1>
         </div>
     )
 }

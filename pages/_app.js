@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }) {
       />
       <meta name="keywords" content="spunbond, care spunbond, pt spunbond, nonwoven" />
 
-      <link rel="manifest" href="/manifest.json" />
       <link rel='icon' href='/favicon.ico'/>
       <link
         href="/icons/favicon-16x16.png"
