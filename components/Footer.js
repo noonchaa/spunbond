@@ -41,18 +41,18 @@ const Footer = ({foottitle,lead,second,fb,twit,insta,lin,factory,office,sales,im
   </div>
   <div className="bg-gray-100">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p className="text-gray-500 text-sm text-center sm:text-left capitalize">© {new Date().getFullYear()} {foottitle}</p>
+      <p className="text-gray-900 text-sm text-center sm:text-left capitalize">© {new Date().getFullYear()} {foottitle}</p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-        <a className="text-gray-500" href={fb==''?'/':fb} target='blank'>
+        <a className="text-gray-500" href={fb==''?'/':fb} target='blank' aria-label='Facebook'>
             <FaFacebookF className='w-5 h-5'/>
         </a>
-        <a className="ml-3 text-gray-500" href={twit==''?'/':twit} target='blank'>
+        <a className="ml-3 text-gray-500" href={twit==''?'/':twit} target='blank' aria-label='Twitter'>
             <FaTwitter className='w-5 h-5'/>
         </a>
-        <a className="ml-3 text-gray-500" href={insta==''?'/':insta} target='blank'>
+        <a className="ml-3 text-gray-500" href={insta==''?'/':insta} target='blank' aria-label='Instagram'>
             <FaInstagram className='w-5 h-5'/>
         </a>
-        <a className="ml-3 text-gray-500" href={lin==''?'/':lin} target='blank'>
+        <a className="ml-3 text-gray-500" href={lin==''?'/':lin} target='blank' aria-label='LinkedIn'>
             <FaLinkedin className='w-5 h-5'/>
         </a>
       </span>

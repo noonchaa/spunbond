@@ -19,12 +19,12 @@ export default function BlogShort({post}) {
         <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">{item.fields.judul}</h1>
         <p className='leading-relaxed mb-3'>{item.fields.keyword}</p>
         <Link href={`/blog/${item.fields.slug}`}>
-        <a className="text-blue-500 inline-flex items-center">Selengkapnya
+        <a className="text-blue-500 inline-flex font-semibold items-center">Selengkapnya
           <FaArrowRight className="w-4 h-4 ml-2"/>
         </a>
         </Link>
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-          <span className="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1">
+          <span className="text-gray-900 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1">
               Published : {item.sys.createdAt.slice(0,10)}
           </span>
         </div>

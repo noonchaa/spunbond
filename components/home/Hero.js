@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Hero = ({img, title, lead, second}) => {
     return (
         <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col lg:flex-row-reverse">
-            <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src={img}/>
+            <Image className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
+                width={267} height={267} priority={true} alt="hero" src={'https:'+img}/>
             <div className="text-center lg:w-2/3 w-full">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 uppercase">{title}</h1>
             <p className="leading-relaxed sm:text-2xl text-xl capitalize">{lead}</p>

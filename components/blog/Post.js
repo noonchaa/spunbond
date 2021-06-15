@@ -1,20 +1,23 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
+import Image from 'next/image'
 
 export default function Post({judul,post,tanggal,motto}) {
     const publish = new Date(tanggal)
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    console.log(post)
     
-    const CustomRender = ({url}) => (
+    const CustomRender = ({url, width, height}) => (
         <div>
-            <img src={`https://${url}`} alt='post' width='auto' height='auto' className='mx-auto'/>
+            <Image src={`https://${url}`} alt='post' width={width} height={height} layout='intrinsic' />
         </div>
     )
     const optionsRender = {
         renderNode:{
             [BLOCKS.EMBEDDED_ASSET] : (node) => {
                 const {url} = node.data.target.fields.file
-                return <CustomRender url={url} />
+                const {width, height} = node.data.target.fields.file.details.image
+                return <CustomRender url={url} width={width} height={height} />
             }
         }
     }
