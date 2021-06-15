@@ -5,11 +5,10 @@ import Image from 'next/image'
 export default function Post({judul,post,tanggal,motto}) {
     const publish = new Date(tanggal)
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    console.log(post)
     
     const CustomRender = ({url, width, height}) => (
         <div>
-            <Image src={`https://${url}`} alt='post' width={width} height={height} layout='intrinsic' />
+            <Image src={`https:${url}`} alt='post' width={width} height={height} layout='intrinsic' />
         </div>
     )
     const optionsRender = {
