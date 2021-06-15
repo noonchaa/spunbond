@@ -36,11 +36,9 @@ export const getStaticProps = async ({params}) => {
 }
 
 const Posts = ({isiPost}) => {
-    const {judul} = isiPost.fields
 
     return(
         <div>
-        <h1>{judul}</h1>
         <h1>key</h1>
         </div>
     )
