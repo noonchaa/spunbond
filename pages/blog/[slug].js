@@ -38,13 +38,11 @@ export const getStaticProps = async ({params}) => {
 
 const Posts = ({isiPost}) => {
     const {judul, keyword,post} = isiPost.fields
-    const {createdAt} = isiPost.sys
 
     return(
         <div>
         <h1>{judul}</h1>
         <h1>{keyword}</h1>
-        <h1>{createdAt}</h1>
         </div>
     )
 }
