@@ -1,6 +1,7 @@
 import {createClient} from 'contentful'
 import Layout from '../../components/Layout'
 import Header from '../../components/blog/Header'
+import Post from '../../components/blog/Post'
 
 const client = createClient({
     space: process.env.CONTENTFUL_ID,
@@ -53,11 +54,23 @@ const PostDetail = ({postDetail,home, sales}) => {
     } = home.fields
 
     return (
-        <Layout title={judul} desc={keyword} foottitle={title} lead={text1} second={text2} 
-        factory={factory} office={headOffice} img={heroImage.fields.file.url} fb={facebook} 
-        twit={twitter}insta={instagram} lin={linkedIn} sales={sales}>
-            <Header link={['profile','aplikasi','contact']} titleLink={'/'} img={heroImage.fields.file.url} />
-
+        <Layout
+            title={judul} 
+            desc={keyword} 
+            foottitle={title} 
+            lead={text1} 
+            second={text2} 
+            factory={factory} 
+            office={headOffice} 
+            img={heroImage.fields.file.url} 
+            fb={facebook} 
+            twit={twitter}
+            insta={instagram} 
+            lin={linkedIn} 
+            sales={sales}
+            >
+            <Header link={['profile','aplikasi','contact']} titleLink={'/blog'} img={heroImage.fields.file.url} />
+            <Post judul={judul} post={post} motto={motto} tanggal={createdAt} />
         </Layout>
     )
 }
