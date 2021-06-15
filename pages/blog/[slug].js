@@ -7,8 +7,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({content_type:'blogPost'})
-    const data = await res.items
-    const paths = data.map(item => {
+    const paths = res.items.map(item => {
         return {
             params: {slug: item.fields.slug}
         }
@@ -30,14 +29,14 @@ export const getStaticProps = async ({params}) => {
     }
     return {
         props:{
-            isiPost:items[0]
+            isiPost:items[0].fields
         },
         revalidate:10
     }
 }
 
 const Posts = ({isiPost}) => {
-    const {judul, keyword,post} = isiPost.fields
+    const {judul, keyword,post} = isiPost
 
     return(
         <div>
